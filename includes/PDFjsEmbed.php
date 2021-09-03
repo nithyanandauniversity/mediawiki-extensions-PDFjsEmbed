@@ -56,6 +56,7 @@ class PDFjsEmbed
         if (preg_match('([^\/]+\.pdf)', $html, $matches)) {
             # $matches contains the groups
             $filename = $matches[0];
+            $filename = str_replace('File:', '', $filename);
             $pdfFile = MediaWikiServices::getInstance()->getRepoGroup()->findFile($filename);
 
             if ($pdfFile !== false) {
